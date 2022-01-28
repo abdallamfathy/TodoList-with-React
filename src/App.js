@@ -1,12 +1,39 @@
 import React , {Component} from 'react';
+import TodoList from "./Components/TodoList/TodoList";
+import AddItem from "./Components/AddItem/AddItem"
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      To DoList app.
-    </div>
-  );
+class App extends Component{
+    state = {
+        items: [
+            {id:1,name:'Dark',age:26},
+            {id:2,name:'Hambola',age:22},
+            {id:3,name:'Bo',age:23},
+        ]
+    }
+    deleteItem=(id)=>{
+
+        let items = this.state.items.filter((items)=>{
+            return items.id !==id
+        })
+        this.setState({items})
+     }
+     addItem = (item)=>{
+        item.id = Math.random();
+        let items = this.state.items;
+        items.push(item);
+        this.setState({items});
+     }
+    render(){
+        return(
+            <div className="App container">
+               <h1 className="text-center">To DoList app</h1>
+                <TodoList items={this.state.items} deleteItem={this.deleteItem}/>
+                <AddItem addItem={this.addItem} />
+            </div>
+        );
+    }
+
 }
 
 export default App;
