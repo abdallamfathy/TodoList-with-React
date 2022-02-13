@@ -6,9 +6,9 @@ import './App.css';
 class App extends Component{
     state = {
         items: [
-            {id:1,name:'Dark',age:26},
-            {id:2,name:'Hambola',age:22},
-            {id:3,name:'Bo',age:23},
+            {id:1,name:'Sport',age:26},
+            {id:2,name:'Work',age:22},
+            {id:3,name:'Study',age:23},
         ]
     }
     deleteItem=(id)=>{
@@ -30,6 +30,7 @@ class App extends Component{
                <h1 className="text-center">To DoList app</h1>
                 <TodoList items={this.state.items} deleteItem={this.deleteItem}/>
                 <AddItem addItem={this.addItem} />
+                <hambola/>
             </div>
         );
     }
